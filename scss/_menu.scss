@@ -12,7 +12,7 @@
     width: 28px;
     height: 3px;
     margin: 0 0 5px 0;
-    background: #fff;
+    background: set-text-color($primary-color);
     @include easeOut;
   }
 
@@ -41,6 +41,8 @@
 .menu {
   position: fixed;
   top: 0;
+  width: 100%;
+  //opacity: 0.9;
   visibility: hidden;
 
   &.show {
@@ -117,7 +119,7 @@
     padding: 1rem 0;
     font-weight: 300;
     text-decoration: none;
-    color: white;
+    color: set-text-color($primary-color);
     @include easeOut;
 
     &:hover {

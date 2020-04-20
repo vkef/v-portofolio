@@ -1,5 +1,5 @@
-$primary-color: #e9b531;
-$secondary-color: #e6b3cc;
+$primary-color: #444;
+$secondary-color: #e2a6bf;
 $show-home-image: true;
 $home-image: url(../img/moving.gif);
 $backgroung-opacity: 0.9;
@@ -22,6 +22,15 @@ $backgroung-opacity: 0.9;
         background: rgba($primary-color, $backgroung-opacity);
       }
     }
+  }
+}
+
+//Set Text Color
+@function set-text-color($color) {
+  @if (lightness($color) >40) {
+    @return #000;
+  } @else {
+    @return #fff;
   }
 }
 
