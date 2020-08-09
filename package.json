@@ -11,5 +11,7 @@
   "devDependencies": {
     "node-sass": "^4.13.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "animate.css": "^3.7.2"
+  }
 }

@@ -1,17 +1,21 @@
 @import "config";
 @import "menu";
-
+$t: 1s;
+$d: 0.08em;
+$n: 3;
+$e: cubic-bezier(0.86, 0, 0.07, 1);
+$front: white;
+$back: $secondary-color;
 * {
   box-sizing: border-box;
 }
 
 body {
-  @include background;
   background: $primary-color;
   color: set-text-color($primary-color);
   height: 100%;
   margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Chivo", sans-serif;
   line-height: 1.5;
 }
 
@@ -23,13 +27,57 @@ h3 {
   margin: 0;
   font-weight: 400;
 
-  &.lg-heading {
+  &.fm-heading {
     font-size: 6rem;
+    margin-bottom: -1rem;
+    padding: 0rem;
+    font-family: "Montserrat", sans-serif;
+
+    @keyframes ani {
+      0% {
+        transform: translate3d(0, 0, 0);
+        text-shadow: 0em 0em 0 $back;
+        color: $front;
+      }
+      30% {
+        transform: translate3d(0, 0, 0);
+        text-shadow: 0em 0em 0 $back;
+        color: $front;
+      }
+      70% {
+        transform: translate3d($d, -$d, 0);
+        text-shadow: -$d $d $back;
+        color: $front;
+      }
+      100% {
+        transform: translate3d($d, -$d, 0);
+        text-shadow: -$d $d $back;
+        color: $front;
+      }
+    }
+    span {
+      position: relative;
+      display: inline-block;
+      animation: ani $t infinite alternate $e;
+      @for $i from 1 through $n {
+        &:nth-last-child(#{$i}n) {
+          animation-delay: -$t * $i/$n/2;
+        }
+      }
+    }
+  }
+
+  &.lg-heading {
+    font-size: 4rem;
+    padding: 0rem;
+    font-weight: bold;
   }
   &.sm-heading {
+    font-size: 1.6rem;
     margin-bottom: 2rem;
-    padding: 0.2rem 1rem;
+    padding: 0rem;
     background: rgba(lighten($primary-color, 2), 0.5);
+    font-weight: bold;
   }
 }
 
@@ -68,7 +116,7 @@ main {
   }
   &#home {
     overflow: hidden;
-    h1 {
+    h3 {
       margin-top: 20vh;
     }
   }
